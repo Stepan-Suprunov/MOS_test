@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import styles from "./style.module.scss"
-import {Head, Row} from "../index"
-import {IDataCell, IHeadCell} from "../../types";
-import {v1} from "uuid";
+import React from 'react';
+import styles from './style.module.scss'
+import {Head, Row} from '../index'
+import {IDataCell, IHeadCell} from '../../types';
+import {v1} from 'uuid';
 
 type TablePropsType = {
     head: IHeadCell[],
@@ -17,11 +17,11 @@ export function Table(props: TablePropsType) {
     function onNameChange(value: string, key: number) {
         const newRows = rows;
         newRows[key].name = value;
-        setRows([...newRows]);
+        setRows(newRows);
     };
 
     function onProductCodeChange(value: string, key: number) {
-        const newRows = [...rows];
+        const newRows = rows;
         newRows[key].productCode = value;
         setRows(newRows);
     };
@@ -29,13 +29,13 @@ export function Table(props: TablePropsType) {
     function onStatusChange(value: string, key: number) {
         const newRows = rows;
         newRows[key].status = value;
-        setRows([...newRows]);
+        setRows(newRows);
     };
 
     function onDescriptionChange(value: string, key: number) {
         const newRows = rows;
         newRows[key].description = value;
-        setRows([...newRows]);
+        setRows(newRows);
     };
 
     function onRowAdd() {

@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./style.module.scss"
-import {IDataCell} from "../../types";
+import React from 'react';
+import styles from './style.module.scss'
+import {IDataCell} from '../../types';
 
 type RowPropsType = {
     row: IDataCell,
     id: number,
     onNameChange: (value: string, key: number) => void,
-    onProductCodeChange: (value: string, key: number) => void
-    onStatusChange: (value: string, key: number) => void
+    onProductCodeChange: (value: string, key: number) => void,
+    onStatusChange: (value: string, key: number) => void,
     onDescriptionChange: (value: string, key: number) => void
 };
 
@@ -21,20 +21,34 @@ export function Row(props: RowPropsType) {
         onDescriptionChange
     } = props;
 
+    const [rowData, setRowData] = React.useState(row);
+
     function nameChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-        onNameChange(e.target.value, id);
+        const newRow = {...rowData};
+        newRow.name = e.target.value;
+        onNameChange(newRow.name, id);
+        setRowData(newRow);
     };
 
     function productCodeChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-        onProductCodeChange(e.target.value, id);
+        const newRow = {...rowData};
+        newRow.productCode = e.target.value;
+        onProductCodeChange(newRow.productCode, id);
+        setRowData(newRow);
     };
 
     function statusChangeHandler(e: React.ChangeEvent<HTMLSelectElement>) {
-        onStatusChange(e.target.value, id);
+        const newRow = {...rowData};
+        newRow.status = e.target.value;
+        onStatusChange(newRow.status, id);
+        setRowData(newRow);
     };
 
     function descriptionChangeHandler(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        onDescriptionChange(e.target.value, id);
+        const newRow = {...rowData};
+        newRow.description = e.target.value;
+        onDescriptionChange(newRow.description, id);
+        setRowData(newRow);
     };
 
     return (

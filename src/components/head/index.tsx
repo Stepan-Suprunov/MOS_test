@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./style.module.scss"
-import {IHeadCell} from "../../types";
+import React from 'react';
+import styles from './style.module.scss'
+import {IHeadCell} from '../../types';
 
 type HeadPropsType = {
     headArray: IHeadCell[]
